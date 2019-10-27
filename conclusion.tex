@@ -1,0 +1,33 @@
+\section{Conclusion}
+
+In this work, we showed that a large deep LSTM, that has a limited 
+vocabulary and that makes almost no
+assumption about problem structure can outperform a standard SMT-based system whose vocabulary
+is unlimited on a large-scale MT task.  The success of our simple
+LSTM-based approach on MT suggests that it should do well on many
+other sequence learning problems, provided they have enough training
+data.
+
+We were surprised by the extent of the improvement obtained by
+reversing the words in the source sentences.  We conclude that it is
+important to find a problem encoding that has the greatest number of
+short term dependencies, as they make the learning problem much
+simpler.  In particular, while we were unable to train a standard
+RNN on the non-reversed translation problem (shown in
+fig.~\ref{fig:translation-model2}), we believe that a standard RNN
+should be easily trainable when the source sentences are reversed (although we
+did not verify it experimentally).
+
+We were also surprised by the ability of the LSTM to correctly
+translate very long sentences.  We were initially convinced that the
+LSTM would fail on long sentences due to its limited memory, and other
+researchers reported poor performance on long sentences with a model
+similar to ours \cite{cho14,bog14,curse}.  And yet,
+LSTMs trained on the reversed dataset had little difficulty translating long
+sentences.
+
+Most importantly, we demonstrated that a simple, straightforward and a
+relatively unoptimized approach can outperform an SMT system, so
+further work will likely lead to even greater translation accuracies.  
+These results suggest that our approach will likely   
+do well on other challenging sequence to sequence problems.
