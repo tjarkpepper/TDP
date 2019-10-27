@@ -1,29 +1,17 @@
 \begin{abstract}
 
-Deep Neural Networks (DNNs) are powerful models that have achieved
-excellent performance on difficult learning tasks. Although DNNs work
-well whenever large labeled training sets are available, 
-they cannot be used to map sequences to sequences.  In this paper, we
-present a general end-to-end approach to sequence learning that makes
-minimal assumptions on the sequence structure. Our method uses a
-multilayered Long Short-Term Memory (LSTM) to map the input sequence
-to a vector of a fixed dimensionality, and then another deep LSTM to
-decode the target sequence from the vector.  Our main result is that
-on an English to French translation task from the WMT'14 dataset, the
-translations produced by the LSTM achieve a BLEU score of 34.8 on the
-entire test set, where the LSTM's BLEU score was penalized on
-out-of-vocabulary words. Additionally, the LSTM did not have
-difficulty on long sentences. For comparison, a phrase-based
-SMT system achieves a BLEU score of 33.3 on the same dataset.  When we
-used the LSTM to rerank the 1000 hypotheses produced by the
-aforementioned SMT system, its BLEU score increases to 36.5, which
-is close to the previous best result on this task.  The LSTM also learned sensible
-phrase and sentence representations that are sensitive to word order
-and are relatively invariant to the active and the passive voice.
-Finally, we found that reversing the order of the words in all source
-sentences (but not target sentences) improved the LSTM's performance
-markedly, because doing so introduced many short term dependencies
-between the source and the target sentence which made the optimization
-problem easier.
+    RoboCup@Home is one of the world largest robotics competition aims at bringing robotic platforms to use
+    in realistic domestic environments. 
+    Although the competition has been held for years and many teams contributed a lot, there are still obstacles in service robotics technology, such as accurate precise grasping, real-time object detection, etc.
+    As to Social Standard Platform League with the Pepper platform, some tasks become more difficult due to limited hardware performance.
+    In this paper, we describe our team's work on this competition and outline functions we have implemented on Pepper.
+    Our software framework is homemade, including high-level package of native NAOqi API, application skills and HTTP communication mechanism.
+    We use camera on Pepper to do some environmental perception and interaction works.
+    In regard to navigation and mapping, ROS is engaged. We use rtab map as our mapping basement.
+    There are also many interesting applications, such as conversation, action imitation.
+    Finally, we designed a user-friendly GUI on Pepper's pad, so that anyone can control the robot and enjoy its service.
+    When we first took part in China RoboCup@Home competition in 2019, we won the first-place. 
+    We are eager to do more and show more on a broader stage.
+
 
 \end{abstract}

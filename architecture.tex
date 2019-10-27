@@ -1,10 +1,33 @@
 \section{Architecture}
 \label{sec:architecture}
 
-We have developed a Python framework, which is a high-level package of NAOqi APIs and ROS-based components. 
-(??)
+As shown in \ref{fig:archi}, we have developed a Python framework, which is a high-level package of NAOqi APIs and ROS-based components. 
+\begin{figure}[!h]
+    \centering
+    \includegraphics[width=4in]{figs/architecture.png}
+    \caption{System architecture}
+    \label{fig:archi}
+\end{figure}
 
-\subsection{Native software on Pepper}
+\subsection{NAOqi Operation System}
+\label{subsec:naoqi}
+In most aspects, NAOqi OS behaves like a Linux.
+The most significant feature is its NAOqi modules.
+Various modules can be accessed through network by the proxy called "ALBroker".
+To upper level application, the proxy is transparent, which makes remote access has no difference with local access.
+All underlying hardware can be used by these NAOqi modules easily.
+\ref{fig:naoqi} shows the NAOqi architecture.
+
+\begin{figure}[!h]
+    \centering
+    \subfigure[File organization]{\label{fig11}\includegraphics[width=2.5in]{figs/naoqi1.png}}
+    \hspace{0.2in}
+    \subfigure[Access process]{\label{fig12}\includegraphics[width=2.5in]{figs/naoqi2.png}}
+    \caption{NAOqi API}
+    \label{fig:naoqi}
+\end{figure}
+
+\subsection{Homemade framework on Pepper}
 \label{subsec:native}
 
 On NAOqi OS, several processes are simultaneously running, including pad process, HTTP server/client process, motion control process, vision process, navigation process, etc.
