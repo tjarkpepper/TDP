@@ -2,14 +2,14 @@
 
     RoboCup@Home is one of the world largest robotics competition aims at bringing robotic platforms to use
     in realistic domestic environments. 
-    Although the competition has been held for years and many teams contributed a lot, there are still obstacles in service robotics technology, such as accurate precise grasping, real-time object detection, etc.
+    Although the competition has been held for years and many teams contributed a lot, there are still obstacles in service robotics technology, such as precise grasping, real-time object detection, etc.
     As to Social Standard Platform League with the Pepper platform, some tasks become more difficult due to limited hardware performance.
     In this paper, we describe our team's work on this competition and outline functions we have implemented on Pepper.
-    Our software framework is homemade, including high-level package of native NAOqi API, application skills and HTTP communication mechanism.
-    We use camera on Pepper to do some environmental perception and interaction works.
-    In regard to navigation and mapping, ROS is engaged. We use rtab map as our mapping basement.
+    Our software framework is homemade, including high-level package of native NAOqi API, ROS-based components, application skills and HTTP communication mechanism.
+    We develop visual-SLAM and real-time naviagtion modules based on ROS and RTAB-Map. 
+    Cameras and deep learning are used to deal with environmental reasoning and interaction tasks.
     There are also many interesting applications, such as conversation, action imitation.
-    Finally, we designed a user-friendly GUI on Pepper's pad, so that anyone can control the robot and enjoy its service.
+    Finally, we designed a user-friendly GUI on Pepper's pad, so that any amateur can control the robot and enjoy its service.
     When we first took part in China RoboCup@Home competition in 2019, we won the first-place. 
     We are eager to do more and show more on a broader stage.
 

@@ -30,8 +30,8 @@ All underlying hardware can be used by these NAOqi modules easily.
 \subsection{Homemade framework on Pepper}
 \label{subsec:native}
 
-On NAOqi OS, several processes are simultaneously running, including pad process, HTTP server/client process, motion control process, vision process, navigation process, etc.
-All codes are organized into two main part: libraries and skills. 
+On NAOqi OS, several processes are simultaneously running, including UI process, HTTP server/client process, motion control process, vision process, navigation process, etc.
+All codes are organized into two main parts: libraries and skills. 
 Libraries, we name them with “/Lib.*\.py/” pattern, are files that contain various class definitions for basic ablilities. 
 Every “Lib” attaches to some specific functions. 
 For example, “LibVariables” defines a class related to global variables stored on local disk or remote server. 
@@ -39,8 +39,8 @@ For example, “LibVariables” defines a class related to global variables stor
 
 To combine them together and implement specific applications, we write many app files, called “Skill”. 
 A “Skill” imports several “Lib”s, to accomplish a complete task, such as tracking a person. 
-Every “Skill” runs as an individual process, so communication problems follows. 
-OS’s memory manager allocate different storage space for different process, so there is no native global space for our different “Skill” and “Lib”. 
+Every “Skill” runs as an individual process, so communication problem follows. 
+OS’s memory manager allocate different storage space for different processes, so there is no native global space for our different “Skill” and “Lib”. 
 But most of time, there is a large need for them to share information. 
 To overcome such dilemma, we developed a JSON-based global variable mechanism. As mentioned before, this function is implemented in “LibVariables”. 
 It uses hard-disk to store a global variable with JSON format. 
@@ -54,22 +54,22 @@ The development process seems like building. It starts from a basic frame, and g
 \subsection{HTTP-based Information Exchange System}
 \label{subsec:http}
 Computational resources are limited in NAOqi OS. 
-The practical requirement is that we must separate some computing tasks from Pepper and put them on a powerful remote server for execution. 
+But in real applications quite a lot tasks need heavy computation, which require us to push them to a powerful remote computer.
 So, we designed a HTTP-based information exchange system. There are two HTTP server process, one in Pepper, another in external computer. 
 
-Main function of external computer server process is to listen Pepper’s requests, start corresponding computing program and response the result to Pepper. 
+Main function of external computer server process is to listen to Pepper’s requests, start corresponding computing program and response the result to Pepper. 
 A conspicuous example is speech recognition task. 
-When records a complex speech sentence from the operator, Pepper send the audio file to the external computer through HTTP request. 
-The server computer receives this request, and convert this speech to text. 
+After recording a complex speech sentence from the operator, Pepper sends the audio file to the external computer through HTTP request. 
+The computer receives this request, and converts this speech to text. 
 Finally, speech text is sent back carried by HTTP response package. 
 
-One the other hand, HTTP server process runs on Pepper mainly aims at web service. 
+On the other hand, HTTP server process runs on Pepper mainly aims at web service. 
 It contains a web site backend. 
 When a browser login the URL, it gets a home page of various applications and can start them by simple clicks. 
-Morever, a device just need the ability of sending HTTP requests to control Pepper’s behavior. 
+Moreover, a device just need the ability of sending HTTP requests to control Pepper’s behavior. 
 This part will be described at ?? in detail. 
 
-The advatage of HTTP information exchange is obvious, it is a widely used and device/language independent. 
+The advantage of HTTP information exchange is obvious, it is widely used and device/language independent. 
 But network quality would limit the performance of HTTP communication. 
 Future works contain compressing information to reduce transfer load.
 
