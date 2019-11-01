@@ -4,7 +4,7 @@ Various vision algorithms are needed for more careful perception and analysis of
 To start interaction, our Pepper can detect and recognize different people, remember their names and some other features, and track them using its camera data. 
 Then, more interested skills will be shown to carry more complex tasks. For example, some tasks require human posture recognition so an algorithm based on OpenPose \cite{Cao_2017_CVPR} is developed. 
 It can recognize human skeleton so that we can judge whether a person is standing, sitting or pointing somewhere. For object-level environment reasoning, we build a detection and recognition framework based on YOLO \cite{Redmon2018YOLOv3AI}, an interesting real-time algorithm. 
-According to the competition environment of RobCup@Home, our object detection system can detect 50 classes of indoor objects in real time and print its name in the figure.
+According to the competition environment of RobCup@Home, our framework can detect 50 classes of indoor objects in real time and print its name in the figure.
 To train our object detection network, we made a dataset containing 50 classes indoor objects from OpenImages.We also matched adjacent input frames to make the detection more robust.
 In some detection tasks we need a large field of view, but the top 2D camera makes us disappointed. So we need to take some measures to expand Pepper's limited original "eyes".
 The method we choose is to stitch images from fifferent perspectives, and a fusion algorithm follows to reduce the influence of illumination and geometric change.
